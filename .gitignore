@@ -13,3 +13,7 @@ go.mod
 dist
 node_modules
 
+# LLVM
+*.bc
+*.ll
+
