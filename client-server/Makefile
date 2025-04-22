@@ -18,5 +18,5 @@ build:
 	go build -o bin/client cmd/client/client.go
 
 clean:
-	rm -f go.sum
-	rm -f server client
+	rm -rf go.sum bin
+
