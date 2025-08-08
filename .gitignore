@@ -4,7 +4,7 @@
 # Golang
 bin/
 go.sum
-go.mod
+#go.mod
 
 # MacOS
 .DS_Store
