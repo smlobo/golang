@@ -19,20 +19,20 @@ func main() {
 	)
 
 	// Usage
-	if len(os.Args) != 2 {
-		fmt.Printf("Usage: %s <depth>\n", os.Args[0])
-		os.Exit(1)
+	if len(os.Args) == 2 {
+		if depth, err = strconv.Atoi(os.Args[1]); err != nil {
+			fmt.Printf("Usage: %s [depth] (where depth is an int)\n", os.Args[0])
+			os.Exit(1)
+		}
+	} else {
+		depth = 5
 	}
 
-	if depth, err = strconv.Atoi(os.Args[1]); err != nil {
-		fmt.Printf("Usage: %s <depth> (where depth is an int)\n", os.Args[0])
-		os.Exit(1)
-	}
 	fmt.Printf("Koch Snowflake depth: %d\n", depth)
 
 	// Initialize fyne
 	fApp := app.New()
-	fWindow := fApp.NewWindow("Koch Snowflake " + os.Args[1])
+	fWindow := fApp.NewWindow(fmt.Sprintf("Koch Snowflake %d\n", depth))
 	fWindow.Resize(fyne.NewSize(800, 800))
 	fContainer := container.NewWithoutLayout()
 	fWindow.SetContent(fContainer)
